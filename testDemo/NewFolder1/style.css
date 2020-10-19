@@ -1,0 +1,24 @@
+html,body {
+	margin: 0;
+	font-family: arial,microsoft yahei;
+	background-color: #272822;
+	color: #fefefe
+}
+
+#fileWrapper {
+	transition: all .5s ease
+}
+
+#fileWrapper:hover {
+	opacity: 1!important
+}
+
+#visualizer_wrapper {
+	text-align: center
+}
+
+footer {
+	position: fixed;
+	bottom: 2px;
+	color: #aaa
+}
