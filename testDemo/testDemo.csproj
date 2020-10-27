@@ -39,10 +39,6 @@
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.WMEncoder">
-      <HintPath>..\..\..\..\Downloads\IDM\interop.wmencoderlib_dll\Interop.WMEncoder.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="NetworkMonitor, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NetworkMonitor.1.0.0.3\lib\net35\NetworkMonitor.dll</HintPath>
     </Reference>

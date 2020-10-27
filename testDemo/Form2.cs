@@ -79,7 +79,7 @@ namespace testDemo
 
             this.TimerCounter.Start();
 
-            this.LostFocus += new EventHandler(AutoHangon);//绑定边角自动靠拢事件
+            this.LostFocus += new EventHandler(AutoHangon);//绑定两边自动靠拢悬浮事件 
         }
         
         /// <summary>
@@ -224,16 +224,20 @@ namespace testDemo
 
         #endregion
 
-        #region 边角自动靠拢
+        #region 两边自动靠拢悬浮 范围 <200px
 
+        /// <summary>
+        /// 两边自动靠拢悬浮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AutoHangon(object sender, System.EventArgs e)
         {
+            int Scope = 200;//范围 px
             Point point= this.Location;//获取当前位置
             int Width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width;//获取当前屏幕的最大宽度
-            if (Width - point.X< this.Width + 200)
-            {
-                this.Location = new Point(Width-this.Width, point.Y);
-            }
+            if (Width - point.X< this.Width + Scope) this.Location = new Point(Width - this.Width, point.Y);
+            else if ( point.X< this.Width + Scope) this.Location = new Point(0, point.Y);
         }
         #endregion
     }

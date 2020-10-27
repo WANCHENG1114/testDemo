@@ -16,5 +16,16 @@ namespace FrmDemo
         {
             InitializeComponent();
         }
+        
+    }
+    interface ITest
+    {
+        string name { get; set; }
+        void Print();
+    }
+    abstract class Test : ITest
+    {
+        public abstract string name { get; set; }
+        public abstract void Print();
     }
 }
