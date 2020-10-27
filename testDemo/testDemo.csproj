@@ -47,6 +47,9 @@
       <HintPath>..\packages\NetworkMonitor.1.0.0.3\lib\net35\NetworkMonitor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="SkinMain">
+      <HintPath>..\..\SkinMain\SkinMain\bin\SkinMain.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />

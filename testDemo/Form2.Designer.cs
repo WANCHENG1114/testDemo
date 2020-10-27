@@ -73,6 +73,7 @@
             this.ShowInTaskbar = false;
             this.Text = "网速指示器";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Speed_indicator_FormClosed);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMain_MouseDown);
             this.ResumeLayout(false);

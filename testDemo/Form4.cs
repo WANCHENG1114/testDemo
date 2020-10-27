@@ -165,6 +165,17 @@ namespace testDemo
             }
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int status = (int)(TaskSubStatus)Enum.Parse(typeof(TaskSubStatus), "当前");
+            MessageBox.Show(status.ToString());
+        }
+    }
+    public enum TaskSubStatus
+    {
+        历史 = 0,
+        当前 = 1,
+        全部 = 2,
+        待生效 = -1
     }
 }
