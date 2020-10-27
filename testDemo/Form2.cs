@@ -185,6 +185,10 @@ namespace testDemo
         #endregion
 
         #region 记忆窗体位置
+        /* 
+         *  引用using Microsoft.Win32;
+         *  储存数据到注册表组成键值对
+         *  */
         /// <summary>
         /// 设置窗体位置
         /// </summary>
