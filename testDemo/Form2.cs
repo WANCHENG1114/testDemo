@@ -19,10 +19,9 @@ namespace testDemo
     {
         Label labelDown = new Label();
         Label labelUp = new Label();
-
-        private NetworkAdapter[] adapters;//声明网卡适配器列表
+        
         private NetworkMonitor monitor = new NetworkMonitor();//声明检测器
-        List<NetworkAdapter> networkAdaptersList = new List<NetworkAdapter>();
+        private List<NetworkAdapter> networkAdaptersList = new List<NetworkAdapter>();//声明网卡适配器列表
 
         NetworkAdapter adapter = null;
         public Speed_indicator(NetworkAdapter networkAdapter = null)
@@ -34,23 +33,6 @@ namespace testDemo
         
         private void FormMain_Load(object sender, System.EventArgs e)
         {
-            #region 设置窗体位置
-
-            RegistryKey reg = Registry.CurrentUser.CreateSubKey("SoftWare\\MySoft");
-            if (reg.GetValue("x") == null || reg.GetValue("y") == null)
-            {
-                int Width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width;// 屏幕宽度
-                int Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;// 屏幕高度
-                this.Location = new Point(Width - this.Width, Height - this.Height);// 置窗体位置
-            }
-            else
-            {
-                int x = Convert.ToInt32(reg.GetValue("x"));
-                int y = Convert.ToInt32(reg.GetValue("y"));
-                this.Location = new Point(x, y);
-            }
-            #endregion
-
             #region 双缓冲
 
             this.DoubleBuffered = true;// 设置本窗体
@@ -60,7 +42,7 @@ namespace testDemo
             #endregion
 
             #region 窗体基本样式
-
+            
             labelDown.AutoSize = false;
             labelDown.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             labelDown.Dock = DockStyle.Top;
@@ -90,7 +72,9 @@ namespace testDemo
             this.ContextMenuStrip = contextMenuStrip1;
             listBox1.ContextMenuStrip = contextMenuStrip1;
             #endregion
-            
+
+            Formlocation();
+
             StateInit();
 
             this.TimerCounter.Start();
@@ -201,7 +185,25 @@ namespace testDemo
         #endregion
 
         #region 记忆窗体位置
-
+        /// <summary>
+        /// 设置窗体位置
+        /// </summary>
+        private void Formlocation()
+        {
+            RegistryKey reg = Registry.CurrentUser.CreateSubKey("SoftWare\\MySoft");
+            if (reg.GetValue("x") == null || reg.GetValue("y") == null)
+            {
+                int Width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width;// 屏幕宽度
+                int Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;// 屏幕高度
+                this.Location = new Point(Width - this.Width, Height - this.Height);// 置窗体位置
+            }
+            else
+            {
+                int x = Convert.ToInt32(reg.GetValue("x"));
+                int y = Convert.ToInt32(reg.GetValue("y"));
+                this.Location = new Point(x, y);
+            }
+        }
         /// <summary>
         /// 窗体关闭储存窗体坐标
         /// </summary>
