@@ -63,7 +63,7 @@ namespace testDemo
             //this.TransparencyKey = this.BackColor;
             //this.Opacity = 0.5;
             #endregion
-
+            this.TopMost = true;
             contextMenuStrip1.Items.Add("退出");
             contextMenuStrip1.ItemClicked += new ToolStripItemClickedEventHandler((object sd, ToolStripItemClickedEventArgs ev) =>
              {
@@ -78,6 +78,8 @@ namespace testDemo
             StateInit();
 
             this.TimerCounter.Start();
+
+            this.LostFocus += new EventHandler(AutoHangon);//绑定边角自动靠拢事件
         }
         
         /// <summary>
@@ -219,7 +221,20 @@ namespace testDemo
             reg.SetValue("x", this.Location.X);
             reg.SetValue("y", this.Location.Y);
         }
-        
+
+        #endregion
+
+        #region 边角自动靠拢
+
+        private void AutoHangon(object sender, System.EventArgs e)
+        {
+            Point point= this.Location;//获取当前位置
+            int Width = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Width;//获取当前屏幕的最大宽度
+            if (Width - point.X< this.Width + 200)
+            {
+                this.Location = new Point(Width-this.Width, point.Y);
+            }
+        }
         #endregion
     }
 }
